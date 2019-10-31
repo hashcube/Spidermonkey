@@ -44,5 +44,11 @@
  - Patches for [SpiderMonkey](https://github.com/ricardoquesada/Spidermonkey/wiki/)
  
 
+## extra compiling instructions for android
 
+make sure the ndk version is 16b
+NDK_ROOT and ANDROID_SDK_ROOT system variables are set to ndk directory and sdk directory
+go to js/src/build-android
+edit build.sh and uncomment all the platforms you want to build library for
+run ./build.sh
  

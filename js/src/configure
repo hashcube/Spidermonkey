@@ -1762,7 +1762,7 @@ echo "configure:1709: checking for android toolchain directory" >&5
     echo $ac_n "checking for android platform directory""... $ac_c" 1>&6
 echo "configure:1764: checking for android platform directory" >&5
 
-    gcc_toolchain="${android_ndk}/toolchains/${android_toolchain_name}-${android_gnu_compiler_version}/prebuilt/darwin-x86_64"
+    gcc_toolchain="${android_ndk}/toolchains/${android_toolchain_name}-${android_gnu_compiler_version}/prebuilt/linux-x86_64"
     
     case "$target_cpu" in
     arm)
@@ -1800,7 +1800,7 @@ echo "configure:1764: checking for android platform directory" >&5
         { echo "configure: error: not found. Please check your NDK. With the current configuration, it should be in $android_platform" 1>&2; echo "configure: error: not found. Please check your NDK. With the current configuration, it should be in $android_platform" 1>&5; exit 1; }
     fi
 
-        TOOLCHAIN_PREFIX="$android_ndk/toolchains/${android_toolchain_name}-4.9/prebuilt/darwin-x86_64/bin/$android_tool_prefix-"
+        TOOLCHAIN_PREFIX="$android_ndk/toolchains/${android_toolchain_name}-4.9/prebuilt/linux-x86_64/bin/$android_tool_prefix-"
     AS="$android_toolchain"/bin/llvm-as
     if test -z "$CC"; then
         CC="$android_toolchain"/bin/clang
@@ -1811,11 +1811,11 @@ echo "configure:1764: checking for android platform directory" >&5
     if test -z "$CPP"; then
         CPP="$android_toolchain"/bin/clang++
     fi
-    LD="$android_ndk"/toolchains/${android_toolchain_name}-4.9/prebuilt/darwin-x86_64/bin/"$android_tool_prefix"-ld
+    LD="$android_ndk"/toolchains/${android_toolchain_name}-4.9/prebuilt/linux-x86_64/bin/"$android_tool_prefix"-ld
     AR="$android_toolchain"/bin/llvm-ar
-    RANLIB="$android_ndk"/toolchains/${android_toolchain_name}-4.9/prebuilt/darwin-x86_64/bin/"$android_tool_prefix"-ranlib
-    STRIP="$android_ndk"/toolchains/${android_toolchain_name}-4.9/prebuilt/darwin-x86_64/bin/"$android_tool_prefix"-strip
-    OBJCOPY="$android_ndk"/toolchains/${android_toolchain_name}-4.9/prebuilt/darwin-x86_64/bin/"$android_tool_prefix"-objcopy
+    RANLIB="$android_ndk"/toolchains/${android_toolchain_name}-4.9/prebuilt/linux-x86_64/bin/"$android_tool_prefix"-ranlib
+    STRIP="$android_ndk"/toolchains/${android_toolchain_name}-4.9/prebuilt/linux-x86_64/bin/"$android_tool_prefix"-strip
+    OBJCOPY="$android_ndk"/toolchains/${android_toolchain_name}-4.9/prebuilt/linux-x86_64/bin/"$android_tool_prefix"-objcopy
 
     CFLAGS="-target $clang_target -D_LIBCPP_DISABLE_VISIBILITY_ANNOTATIONS -DANDROID -D__ANDROID_API__=${android_version} -gcc-toolchain $gcc_toolchain --sysroot=$android_platform -idirafter $android_ndk/sources/android/support/include -idirafter $android_ndk/sysroot/usr/include -idirafter $android_ndk/sysroot/usr/include/$android_tool_prefix -fno-short-enums -fno-exceptions -Wno-inconsistent-missing-override -Wno-invalid-offsetof $CFLAGS"
     CXXFLAGS="$CFLAGS $CXXFLAGS"

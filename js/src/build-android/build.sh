@@ -59,6 +59,7 @@ rm -f ./config.cache
              --with-android-arch=${CPU_ARCH} \
              --target=${TARGET_NAME} \
              --disable-shared-js \
+             --disable-gold \
              --disable-tests \
              --enable-strip \
              --enable-install-strip \
@@ -185,11 +186,11 @@ GCC_VERSION=4.9
 TOOLNAME_PREFIX=aarch64-linux-android
 build_with_arm64
 
-# Build with x86
-TOOLS_ARCH=x86
-TARGET_NAME=i686-linux-android
-CPU_ARCH=x86
-RELEASE_ARCH_DIR=x86
-GCC_VERSION=4.9
-TOOLNAME_PREFIX=i686-linux-android
-build_with_arch
+# # Build with x86
+# TOOLS_ARCH=x86
+# TARGET_NAME=i686-linux-android
+# CPU_ARCH=x86
+# RELEASE_ARCH_DIR=x86
+# GCC_VERSION=4.9
+# TOOLNAME_PREFIX=i686-linux-android
+# build_with_arch
